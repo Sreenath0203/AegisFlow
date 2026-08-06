@@ -1,0 +1,142 @@
+/* =========================================================
+   AEGISFLOW DESIGN SYSTEM
+   Theme: Modern Enterprise Intelligence
+   ========================================================= */
+
+:root {
+
+    /* =====================================================
+       COLORS
+    ===================================================== */
+
+    /* Brand */
+    --primary-color: #2563EB;
+    --primary-hover: #1D4ED8;
+    --secondary-color: #4F46E5;
+
+    /* Status */
+    --success-color: #22C55E;
+    --warning-color: #F59E0B;
+    --danger-color: #EF4444;
+    --info-color: #0EA5E9;
+
+    /* Backgrounds */
+    --background-color: #F8FAFC;
+    --surface-color: #FFFFFF;
+    --sidebar-bg: #0F172A;
+    --navbar-bg: #FFFFFF;
+
+    /* Text */
+    --text-primary: #1E293B;
+    --text-secondary: #64748B;
+    --text-light: #FFFFFF;
+
+    /* Borders */
+    --border-color: #E2E8F0;
+
+    /* Risk Badge Colors */
+
+    --low-risk-bg: #DCFCE7;
+    --low-risk-text: #15803D;
+
+    --medium-risk-bg: #FEF3C7;
+    --medium-risk-text: #B45309;
+
+    --high-risk-bg: #FEE2E2;
+    --high-risk-text: #B91C1C;
+
+    /* Charts */
+
+    --chart-blue: #2563EB;
+    --chart-green: #22C55E;
+    --chart-orange: #F59E0B;
+    --chart-red: #EF4444;
+    --chart-purple: #7C3AED;
+
+    /* =====================================================
+       TYPOGRAPHY
+    ===================================================== */
+
+    --font-family: "Inter", Arial, sans-serif;
+
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 24px;
+    --font-size-2xl: 32px;
+    --font-size-3xl: 40px;
+
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+
+    --line-height: 1.6;
+
+    /* =====================================================
+       SPACING
+    ===================================================== */
+
+    --space-xs: 4px;
+    --space-sm: 8px;
+    --space-md: 16px;
+    --space-lg: 24px;
+    --space-xl: 32px;
+    --space-2xl: 48px;
+    --space-3xl: 64px;
+
+    /* =====================================================
+       BORDER RADIUS
+    ===================================================== */
+
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-pill: 50px;
+
+    /* =====================================================
+       SHADOWS
+    ===================================================== */
+
+    --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.05);
+
+    --shadow-md: 0 6px 18px rgba(15, 23, 42, 0.08);
+
+    --shadow-lg: 0 12px 30px rgba(15, 23, 42, 0.12);
+
+    /* =====================================================
+       TRANSITIONS
+    ===================================================== */
+
+    --transition-fast: 0.15s ease-in-out;
+    --transition-normal: 0.25s ease-in-out;
+    --transition-slow: 0.4s ease-in-out;
+
+    /* =====================================================
+       LAYOUT
+    ===================================================== */
+
+    --sidebar-width: 260px;
+    --sidebar-collapsed-width: 80px;
+
+    --navbar-height: 70px;
+
+    --container-width: 1400px;
+
+    --content-padding: 24px;
+
+    /* =====================================================
+       Z-INDEX
+    ===================================================== */
+
+    --z-dropdown: 100;
+    --z-sticky: 500;
+    --z-navbar: 1000;
+    --z-sidebar: 1100;
+    --z-modal: 1200;
+    --z-tooltip: 1300;
+
+}

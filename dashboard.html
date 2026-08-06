@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AegisFlow | Dashboard</title>
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- SIDEBAR -->
+    <!-- ===================================================== -->
+
+    <aside class="sidebar">
+
+        <!-- Logo -->
+
+        <div class="sidebar-logo">
+
+            <h2>AegisFlow</h2>
+
+        </div>
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-menu">
+
+            <ul>
+
+                <li>
+
+                    <a href="#" class="active">
+
+                        <i data-lucide="layout-dashboard"></i>
+
+                        <span>Dashboard</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        <i data-lucide="package"></i>
+
+                        <span>Suppliers</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        <i data-lucide="triangle-alert"></i>
+
+                        <span>Risk Analytics</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        <i data-lucide="bot"></i>
+
+                        <span>AI Insights</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        <i data-lucide="bar-chart-3"></i>
+
+                        <span>Operational Insights</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        <i data-lucide="settings"></i>
+
+                        <span>Settings</span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <!-- Footer -->
+
+        <div class="sidebar-footer">
+
+            <a href="#">
+
+                <i data-lucide="log-out"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ===================================================== -->
+    <!-- MAIN WRAPPER -->
+    <!-- ===================================================== -->
+
+    <div class="main-wrapper">
+
+        <!-- ================================================= -->
+        <!-- NAVBAR -->
+        <!-- ================================================= -->
+
+        <header class="navbar">
+
+            <!-- Search -->
+
+            <div class="navbar-search">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input type="text"
+                        placeholder="Search suppliers, risks or recommendations...">
+
+                </div>
+
+            </div>
+
+            <!-- Right -->
+
+            <div class="navbar-right">
+
+                <!-- Notification -->
+
+                <button class="icon-button">
+
+                    <i data-lucide="bell"></i>
+
+                </button>
+
+                <!-- User -->
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+
+                        RK
+
+                    </div>
+
+                    <div class="user-info">
+
+                        <h4>Ravi</h4>
+
+                        <span>Supply Manager</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- ================================================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ================================================= -->
+
+        <main class="main-content">
+<!-- ===================================================== -->
+<!-- DASHBOARD HEADER -->
+<!-- ===================================================== -->
+
+<section class="dashboard-header fade-up">
+
+    <div class="dashboard-header-left">
+
+        <span class="dashboard-greeting">
+            Good Evening, Ravi 👋
+        </span>
+
+        <h1 class="dashboard-title">
+            Supply Chain Command Center
+        </h1>
+
+        <p class="dashboard-description">
+
+            Monitor supplier performance, identify potential risks,
+            and receive AI-powered recommendations before disruptions
+            impact your supply chain.
+
+        </p>
+
+    </div>
+
+    <div class="dashboard-header-right">
+
+        <div class="dashboard-date-card">
+
+            <span class="date-label">
+                Today's Status
+            </span>
+
+            <h3>
+                05 Aug 2026
+            </h3>
+
+            <p>
+
+                System Health
+
+                <span class="badge badge-success">
+                    Operational
+                </span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- KPI SECTION -->
+<!-- ===================================================== -->
+
+<section class="kpi-section">
+
+    <!-- Card 1 -->
+
+    <div class="kpi-card hover-lift">
+
+        <div class="kpi-icon">
+
+            <i data-lucide="package"></i>
+
+        </div>
+
+        <div class="kpi-value">
+
+            124
+
+        </div>
+
+        <div class="kpi-title">
+
+            Total Suppliers
+
+        </div>
+
+        <div class="kpi-trend">
+
+            ↑ 8% from last month
+
+        </div>
+
+    </div>
+
+    <!-- Card 2 -->
+
+    <div class="kpi-card hover-lift">
+
+        <div class="kpi-icon">
+
+            <i data-lucide="triangle-alert"></i>
+
+        </div>
+
+        <div class="kpi-value">
+
+            16
+
+        </div>
+
+        <div class="kpi-title">
+
+            High Risk Suppliers
+
+        </div>
+
+        <div class="kpi-trend">
+
+            Requires Attention
+
+        </div>
+
+    </div>
+
+    <!-- Card 3 -->
+
+    <div class="kpi-card hover-lift">
+
+        <div class="kpi-icon">
+
+            <i data-lucide="truck"></i>
+
+        </div>
+
+        <div class="kpi-value">
+
+            7
+
+        </div>
+
+        <div class="kpi-title">
+
+            Delayed Shipments
+
+        </div>
+
+        <div class="kpi-trend">
+
+            Updated Today
+
+        </div>
+
+    </div>
+
+    <!-- Card 4 -->
+
+    <div class="kpi-card hover-lift">
+
+        <div class="kpi-icon">
+
+            <i data-lucide="bot"></i>
+
+        </div>
+
+        <div class="kpi-value">
+
+            5
+
+        </div>
+
+        <div class="kpi-title">
+
+            AI Recommendations
+
+        </div>
+
+        <div class="kpi-trend">
+
+            Ready to Review
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- CHART PLACEHOLDER -->
+<!-- ===================================================== -->
+
+<!-- ===================================================== -->
+<!-- OPERATIONAL INSIGHTS -->
+<!-- ===================================================== -->
+
+<section class="charts-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+                Operational Insights
+            </h2>
+
+            <p class="section-subtitle">
+                Monitor supplier performance and disruption trends.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="charts-grid">
+
+        <!-- Risk Distribution -->
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <h3>Risk Distribution</h3>
+
+                <span class="badge badge-danger">
+                    Live
+                </span>
+
+            </div>
+
+            <div class="chart-placeholder">
+
+                Pie Chart
+
+            </div>
+
+        </div>
+
+        <!-- Shipment Delay -->
+
+        <div class="chart-card">
+
+            <div class="chart-header">
+
+                <h3>Shipment Delay Trend</h3>
+
+                <span class="badge badge-success">
+                    Updated
+                </span>
+
+            </div>
+
+            <div class="chart-placeholder">
+
+                Line Chart
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Full Width Chart -->
+
+    <div class="chart-card">
+
+        <div class="chart-header">
+
+            <h3>Supplier Performance</h3>
+
+            <span class="badge badge-warning">
+
+                Monthly
+
+            </span>
+
+        </div>
+
+        <div class="chart-placeholder large">
+
+            Bar Chart
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- AI SECTION -->
+<!-- ===================================================== -->
+
+<section class="recommendation-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+                AI Decision Engine
+            </h2>
+
+            <p class="section-subtitle">
+                AI-generated recommendations based on supplier risk analysis.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="ai-card">
+
+        <!-- Header -->
+
+        <div class="ai-header">
+
+            <div class="ai-title">
+
+                <i data-lucide="bot"></i>
+
+                <div>
+
+                    <h3>High Risk Detected</h3>
+
+                    <p>IBM Granite AI Analysis</p>
+
+                </div>
+
+            </div>
+
+            <span class="badge badge-danger">
+
+                Confidence 94%
+
+            </span>
+
+        </div>
+
+        <!-- Content -->
+
+        <div class="ai-content">
+
+            <div class="ai-grid">
+
+                <div class="ai-item">
+
+                    <span class="label">Supplier</span>
+
+                    <strong>ABC Logistics</strong>
+
+                </div>
+
+                <div class="ai-item">
+
+                    <span class="label">Location</span>
+
+                    <strong>Chennai</strong>
+
+                </div>
+
+                <div class="ai-item">
+
+                    <span class="label">Expected Delay</span>
+
+                    <strong>3 Days</strong>
+
+                </div>
+
+                <div class="ai-item">
+
+                    <span class="label">Priority</span>
+
+                    <span class="badge badge-danger">
+                        Critical
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="ai-reason">
+
+                <h4>Reason</h4>
+
+                <p>
+                    Heavy rainfall and transportation disruptions are
+                    expected to delay shipments from this supplier.
+                </p>
+
+            </div>
+
+            <div class="ai-action">
+
+                <h4>Recommended Action</h4>
+
+                <p>
+                    Switch upcoming orders to an alternate supplier until
+                    weather conditions improve.
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="ai-footer">
+
+            <button class="btn btn-primary">
+
+                <i data-lucide="sparkles"></i>
+
+                View Full Analysis
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- CRITICAL ALERTS -->
+<!-- ===================================================== -->
+
+<section class="alerts-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+
+                Critical Alerts
+
+            </h2>
+
+            <p class="section-subtitle">
+
+                High-priority events that require immediate attention.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="alerts-grid">
+
+        <!-- Alert 1 -->
+
+        <div class="alert-card high-risk">
+
+            <div class="alert-top">
+
+                <span class="badge badge-danger">
+
+                    HIGH
+
+                </span>
+
+                <span class="alert-time">
+
+                    5 mins ago
+
+                </span>
+
+            </div>
+
+            <h3 id="alert-supplier-1">
+
+                ABC Logistics
+
+            </h3>
+
+            <p>
+
+                Heavy rainfall may delay shipments by
+                <strong>3 Days</strong>.
+
+            </p>
+
+            <button class="btn btn-secondary">
+
+                View Details
+
+            </button>
+
+        </div>
+
+        <!-- Alert 2 -->
+
+        <div class="alert-card medium-risk">
+
+            <div class="alert-top">
+
+                <span class="badge badge-warning">
+
+                    MEDIUM
+
+                </span>
+
+                <span class="alert-time">
+
+                    30 mins ago
+
+                </span>
+
+            </div>
+
+            <h3 id="alert-supplier-2">
+
+                XYZ Industries
+
+            </h3>
+
+            <p>
+
+                Port congestion detected.
+
+                Estimated delay
+                <strong>1 Day</strong>.
+
+            </p>
+
+            <button class="btn btn-secondary">
+
+                View Details
+
+            </button>
+
+        </div>
+
+        <!-- Alert 3 -->
+
+        <div class="alert-card low-risk">
+
+            <div class="alert-top">
+
+                <span class="badge badge-success">
+
+                    LOW
+
+                </span>
+
+                <span class="alert-time">
+
+                    1 hour ago
+
+                </span>
+
+            </div>
+
+            <h3 id="alert-supplier-3">
+
+                Global Parts
+
+            </h3>
+
+            <p>
+
+                Operating normally.
+
+                No disruptions detected.
+
+            </p>
+
+            <button class="btn btn-secondary">
+
+                View Details
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SUPPLIER TABLE -->
+<!-- ===================================================== --> 
+
+<!-- ===================================================== -->
+<!-- SUPPLIER OVERVIEW -->
+<!-- ===================================================== -->
+
+<section class="suppliers-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+                Supplier Overview
+            </h2>
+
+            <p class="section-subtitle">
+                Live supplier status, delivery performance and operational risk.
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Supplier</th>
+
+                    <th>Location</th>
+
+                    <th>Risk</th>
+
+                    <th>Delay</th>
+
+                    <th>Status</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <tr>
+
+                    <td id="supplier-1">
+                        ABC Logistics
+                    </td>
+
+                    <td>
+                        Chennai
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-danger">
+
+                            High
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        3 Days
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-danger">
+
+                            Delayed
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td id="supplier-2">
+
+                        XYZ Industries
+
+                    </td>
+
+                    <td>
+
+                        Mumbai
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-warning">
+
+                            Medium
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        1 Day
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-warning">
+
+                            Monitoring
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td id="supplier-3">
+
+                        Global Parts
+
+                    </td>
+
+                    <td>
+
+                        Bengaluru
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-success">
+
+                            Low
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        None
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-success">
+
+                            Active
+
+                        </span>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+<!-- ===================================================== -->
+<!-- SUPPLY CHAIN HEALTH SUMMARY -->
+<!-- ===================================================== -->
+
+<section class="summary-section">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2 class="section-title">
+
+                Supply Chain Health Summary
+
+            </h2>
+
+            <p class="section-subtitle">
+
+                Overall operational health based on supplier performance,
+                AI risk analysis and logistics monitoring.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="summary-card">
+
+        <div class="summary-grid">
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    Overall Health
+                </span>
+
+                <h2 id="health-score">
+                    92%
+                </h2>
+
+            </div>
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    Active Suppliers
+                </span>
+
+                <h2 id="active-suppliers">
+                    124
+                </h2>
+
+            </div>
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    High Risk
+                </span>
+
+                <h2 id="high-risk-count">
+                    16
+                </h2>
+
+            </div>
+
+            <div class="summary-item">
+
+                <span class="summary-label">
+                    AI Confidence
+                </span>
+
+                <h2 id="ai-confidence">
+                    94%
+                </h2>
+
+            </div>
+
+        </div>
+
+        <div class="summary-insights">
+
+            <h3>
+
+                Executive Insights
+
+            </h3>
+
+            <ul>
+
+                <li>
+
+                    Supply chain operations are currently stable.
+
+                </li>
+
+                <li>
+
+                    Continue monitoring ABC Logistics due to weather risk.
+
+                </li>
+
+                <li>
+
+                    AI recommends maintaining additional inventory
+                    for the Chennai region.
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="summary-footer">
+
+            <button class="btn btn-primary">
+
+                Generate Executive Report
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+        </main>
+
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+
+</body>
+
+</html>

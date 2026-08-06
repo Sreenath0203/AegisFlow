@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AegisFlow | Suppliers</title>
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Lucide Icons -->
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/suppliers.css">
+    <link rel="stylesheet" href="css/responsive.css">
+
+</head>
+
+<body>
+
+    <!-- ===================================================== -->
+    <!-- SIDEBAR -->
+    <!-- ===================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <h2>AegisFlow</h2>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <ul>
+
+                <li>
+
+                    <a href="dashboard.html">
+
+                        <i data-lucide="layout-dashboard"></i>
+
+                        <span>Dashboard</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="suppliers.html" class="active">
+
+                        <i data-lucide="package"></i>
+
+                        <span>Suppliers</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="analytics.html">
+
+                        <i data-lucide="triangle-alert"></i>
+
+                        <span>Risk Analytics</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="recommendations.html">
+
+                        <i data-lucide="bot"></i>
+
+                        <span>AI Insights</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="#">
+
+                        <i data-lucide="bar-chart-3"></i>
+
+                        <span>Operational Insights</span>
+
+                    </a>
+
+                </li>
+
+                <li>
+
+                    <a href="settings.html">
+
+                        <i data-lucide="settings"></i>
+
+                        <span>Settings</span>
+
+                    </a>
+
+                </li>
+
+            </ul>
+
+        </nav>
+
+        <div class="sidebar-footer">
+
+            <a href="#">
+
+                <i data-lucide="log-out"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </div>
+
+    </aside>
+
+    <!-- ===================================================== -->
+    <!-- MAIN WRAPPER -->
+    <!-- ===================================================== -->
+
+    <div class="main-wrapper">
+
+        <!-- ================================================= -->
+        <!-- NAVBAR -->
+        <!-- ================================================= -->
+
+        <header class="navbar">
+
+            <div class="navbar-search">
+
+                <div class="search-box">
+
+                    <i data-lucide="search"></i>
+
+                    <input type="text"
+                        placeholder="Search suppliers...">
+
+                </div>
+
+            </div>
+
+            <div class="navbar-right">
+
+                <button class="icon-button">
+
+                    <i data-lucide="bell"></i>
+
+                </button>
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+
+                        RK
+
+                    </div>
+
+                    <div class="user-info">
+
+                        <h4>Ravi</h4>
+
+                        <span>Supply Manager</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- ================================================= -->
+        <!-- MAIN CONTENT -->
+        <!-- ================================================= -->
+
+        <main class="main-content">
+        <!-- ===================================================== -->
+<!-- PAGE HEADER -->
+<!-- ===================================================== -->
+
+<section class="page-header fade-up">
+
+    <div class="page-header-left">
+
+        <h1 class="page-title">
+
+            Supplier Management
+
+        </h1>
+
+        <p class="page-description">
+
+            Monitor supplier performance, manage supplier information,
+            and track operational risks across your supply chain.
+
+        </p>
+
+    </div>
+
+    <div class="page-header-right">
+
+        <button class="btn btn-primary">
+
+            <i data-lucide="plus"></i>
+
+            Add Supplier
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- TOOLBAR -->
+<!-- ===================================================== -->
+
+<section class="toolbar">
+
+    <div class="toolbar-left">
+
+        <div class="search-box">
+
+            <i data-lucide="search"></i>
+
+            <input
+                type="text"
+                placeholder="Search supplier name, location or ID...">
+
+        </div>
+
+    </div>
+
+    <div class="toolbar-right">
+
+        <select class="input-field">
+
+            <option>All Risks</option>
+            <option>High</option>
+            <option>Medium</option>
+            <option>Low</option>
+
+        </select>
+
+        <select class="input-field">
+
+            <option>All Status</option>
+            <option>Active</option>
+            <option>Monitoring</option>
+            <option>Delayed</option>
+
+        </select>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SUPPLIER TABLE -->
+<!-- ===================================================== -->
+
+<section class="supplier-table-section">
+
+    <div class="table-container">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Supplier ID</th>
+
+                    <th>Supplier Name</th>
+
+                    <th>Location</th>
+
+                    <th>Risk</th>
+
+                    <th>Status</th>
+
+                    <th>Delay</th>
+
+                    <th>Last Updated</th>
+
+                    <th>Actions</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                <!-- Row 1 -->
+
+                <tr>
+
+                    <td>SUP-001</td>
+
+                    <td>
+
+                        ABC Logistics
+
+                    </td>
+
+                    <td>
+
+                        Chennai
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-danger">
+
+                            High
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-success">
+
+                            Active
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        3 Days
+
+                    </td>
+
+                    <td>
+
+                        Today
+
+                    </td>
+
+                    <td>
+
+                        <div class="table-actions">
+
+                            <button class="icon-button">
+
+                                <i data-lucide="eye"></i>
+
+                            </button>
+
+                            <button class="icon-button">
+
+                                <i data-lucide="square-pen"></i>
+
+                            </button>
+
+                            <button class="icon-button">
+
+                                <i data-lucide="trash-2"></i>
+
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                <!-- Row 2 -->
+
+                <tr>
+
+                    <td>SUP-002</td>
+
+                    <td>
+
+                        XYZ Industries
+
+                    </td>
+
+                    <td>
+
+                        Mumbai
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-warning">
+
+                            Medium
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-warning">
+
+                            Monitoring
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        1 Day
+
+                    </td>
+
+                    <td>
+
+                        Today
+
+                    </td>
+
+                    <td>
+
+                        <div class="table-actions">
+
+                            <button class="icon-button">
+
+                                <i data-lucide="eye"></i>
+
+                            </button>
+
+                            <button class="icon-button">
+
+                                <i data-lucide="square-pen"></i>
+
+                            </button>
+
+                            <button class="icon-button">
+
+                                <i data-lucide="trash-2"></i>
+
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+                <!-- Row 3 -->
+
+                <tr>
+
+                    <td>SUP-003</td>
+
+                    <td>
+
+                        Global Parts
+
+                    </td>
+
+                    <td>
+
+                        Bengaluru
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-success">
+
+                            Low
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge badge-success">
+
+                            Active
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        None
+
+                    </td>
+
+                    <td>
+
+                        Today
+
+                    </td>
+
+                    <td>
+
+                        <div class="table-actions">
+
+                            <button class="icon-button">
+
+                                <i data-lucide="eye"></i>
+
+                            </button>
+
+                            <button class="icon-button">
+
+                                <i data-lucide="square-pen"></i>
+
+                            </button>
+
+                            <button class="icon-button">
+
+                                <i data-lucide="trash-2"></i>
+
+                            </button>
+
+                        </div>
+
+                    </td>
+
+                </tr>
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+<!-- ===================================================== -->
+<!-- PAGINATION -->
+<!-- ===================================================== -->
+
+<section class="pagination-section">
+
+    <div class="pagination-info">
+
+        Showing <strong>1–10</strong> of
+        <strong>124</strong> suppliers
+
+    </div>
+
+    <div class="pagination">
+
+        <button class="btn btn-secondary">
+
+            Previous
+
+        </button>
+
+        <button class="btn btn-primary">
+
+            1
+
+        </button>
+
+        <button class="btn btn-secondary">
+
+            2
+
+        </button>
+
+        <button class="btn btn-secondary">
+
+            3
+
+        </button>
+
+        <button class="btn btn-secondary">
+
+            Next
+
+        </button>
+
+    </div>
+
+</section>
+
+<!-- ===================================================== -->
+<!-- SUPPLIER SUMMARY -->
+<!-- ===================================================== -->
+
+<section class="supplier-summary">
+
+    <div class="summary-card">
+
+        <div class="summary-item">
+
+            <h3>Total Suppliers</h3>
+
+            <span>124</span>
+
+        </div>
+
+        <div class="summary-item">
+
+            <h3>Active</h3>
+
+            <span>98</span>
+
+        </div>
+
+        <div class="summary-item">
+
+            <h3>High Risk</h3>
+
+            <span>16</span>
+
+        </div>
+
+        <div class="summary-item">
+
+            <h3>Monitoring</h3>
+
+            <span>10</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+</div>
+
+<script src="js/suppliers.js"></script>
+
+<script>
+
+    lucide.createIcons();
+
+</script>
+
+</body>
+
+</html>
