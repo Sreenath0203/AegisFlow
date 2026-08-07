@@ -1,0 +1,6 @@
+supplier_id,supplier_name,country,reliability_score,delivery_days
+1,Tata Steel,India,95,4
+2,ABC Metals,USA,88,8
+3,Nippon Corp,Japan,92,6
+4,Global Plastics,Germany,90,7
+5,Prime Components,China,84,10
