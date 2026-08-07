@@ -1,0 +1,359 @@
+/* =========================================================
+   SUPPLIER DETAILS PAGE
+========================================================= */
+
+.supplier-details-page{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:32px;
+
+}
+
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.details-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:20px;
+
+}
+
+.details-header h1{
+
+    font-size:32px;
+
+    font-weight:700;
+
+    color:var(--text-primary);
+
+}
+
+.details-header p{
+
+    color:var(--text-secondary);
+
+    margin-top:8px;
+
+}
+
+
+
+/* =========================================================
+   DETAILS GRID
+========================================================= */
+
+.details-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:24px;
+
+}
+
+
+
+/* =========================================================
+   DETAILS CARD
+========================================================= */
+
+.details-card{
+
+    background:var(--surface-color);
+
+    border:1px solid var(--border-color);
+
+    border-radius:var(--radius-xl);
+
+    padding:28px;
+
+    box-shadow:var(--shadow-sm);
+
+    transition:var(--transition-fast);
+
+}
+
+.details-card:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow-lg);
+
+}
+
+.details-card h3{
+
+    margin-bottom:20px;
+
+    color:var(--text-primary);
+
+}
+/* =========================================================
+   SUPPLIER INFORMATION
+========================================================= */
+
+.supplier-info{
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:20px;
+
+}
+
+.info-item{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:6px;
+
+}
+
+.info-item label{
+
+    font-size:14px;
+
+    font-weight:600;
+
+    color:var(--text-secondary);
+
+}
+
+.info-item span{
+
+    font-size:16px;
+
+    color:var(--text-primary);
+
+    font-weight:500;
+
+}
+
+
+
+/* =========================================================
+   PERFORMANCE METRICS
+========================================================= */
+
+.metric{
+
+    margin-bottom:24px;
+
+}
+
+.metric-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:10px;
+
+}
+
+.metric-header h4{
+
+    font-size:15px;
+
+    color:var(--text-primary);
+
+}
+
+.metric-value{
+
+    font-weight:700;
+
+    color:var(--primary-color);
+
+}
+
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+.progress-bar{
+
+    width:100%;
+
+    height:10px;
+
+    background:#E5E7EB;
+
+    border-radius:999px;
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    height:100%;
+
+    width:0;
+
+    background:var(--primary-color);
+
+    border-radius:999px;
+
+    transition:width 1s ease;
+
+}
+
+
+
+/* =========================================================
+   STATUS BADGE
+========================================================= */
+
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+/* =========================================================
+   ACTION BUTTONS
+========================================================= */
+
+.details-actions{
+
+    display:flex;
+
+    gap:16px;
+
+    flex-wrap:wrap;
+
+    margin-top:24px;
+
+}
+
+.details-actions .btn{
+
+    flex:1;
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE DESIGN
+========================================================= */
+
+@media(max-width:992px){
+
+    .details-grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .details-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+    }
+
+    .supplier-info{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .details-actions{
+
+        flex-direction:column;
+
+    }
+
+}
+
+@media(max-width:576px){
+
+    .details-header h1{
+
+        font-size:28px;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   SMALL UI ENHANCEMENTS
+========================================================= */
+
+.details-card{
+
+    overflow:hidden;
+
+}
+
+.progress-fill{
+
+    transition:width 1s ease;
+
+}
+
+.details-actions .btn{
+
+    transition:var(--transition-fast);
+
+}
+
+.details-actions .btn:hover{
+
+    transform:translateY(-2px);
+
+}
+
+.metric{
+
+    transition:var(--transition-fast);
+
+}
+
+.metric:hover{
+
+    transform:translateX(4px);
+
+}

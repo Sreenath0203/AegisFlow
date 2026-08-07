@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Recommendations | AegisFlow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/variables.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/layout.css">
+
+    <link rel="stylesheet" href="css/components.css">
+
+    <link rel="stylesheet" href="css/recommendations.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <h2>AegisFlow</h2>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="dashboard.html">
+
+                <i data-lucide="layout-dashboard"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="suppliers.html">
+
+                <i data-lucide="building-2"></i>
+
+                Suppliers
+
+            </a>
+
+            <a href="analytics.html">
+
+                <i data-lucide="bar-chart-3"></i>
+
+                Analytics
+
+            </a>
+
+            <a href="recommendations.html" class="active">
+
+                <i data-lucide="sparkles"></i>
+
+                AI Recommendations
+
+            </a>
+
+            <a href="settings.html">
+
+                <i data-lucide="settings"></i>
+
+                Settings
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <div class="recommendations-page">
+
+            <div class="recommendations-header">
+
+                <div>
+
+                    <h1>AI Recommendations</h1>
+
+                    <p>
+
+                        Smart recommendations generated using supplier analytics.
+
+                    </p>
+
+                </div>
+
+                <div class="recommendations-toolbar">
+
+                    <div class="recommendations-filters">
+
+                        <select class="input-field">
+
+                            <option>All Categories</option>
+
+                            <option>High Priority</option>
+
+                            <option>Medium Priority</option>
+
+                            <option>Low Priority</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="recommendations-grid">
+                                <div class="recommendation-card">
+
+                    <span class="badge badge-warning">
+
+                        High Priority
+
+                    </span>
+
+                    <h3>Review Electronics Supplier</h3>
+
+                    <div class="confidence-score">
+
+                        96% Confidence
+
+                    </div>
+
+                    <p>
+
+                        The AI model detected an increase in delivery delays
+                        from the Electronics supplier over the last two weeks.
+                        Consider reviewing the supplier's performance.
+
+                    </p>
+
+                    <div class="recommendation-actions">
+
+                        <button class="btn btn-primary">
+
+                            Accept
+
+                        </button>
+
+                        <button class="btn btn-secondary">
+
+                            Reject
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="recommendation-card">
+
+                    <span class="badge badge-success">
+
+                        Medium Priority
+
+                    </span>
+
+                    <h3>Increase Order Capacity</h3>
+
+                    <div class="confidence-score">
+
+                        91% Confidence
+
+                    </div>
+
+                    <p>
+
+                        The Packaging supplier has consistently delivered
+                        before deadlines with excellent quality. Increasing
+                        allocation could improve procurement efficiency.
+
+                    </p>
+
+                    <div class="recommendation-actions">
+
+                        <button class="btn btn-primary">
+
+                            Accept
+
+                        </button>
+
+                        <button class="btn btn-secondary">
+
+                            Reject
+
+                        </button>
+
+                    </div>
+
+                </div>
+                                <div class="recommendation-card">
+
+                    <span class="badge badge-success">
+
+                        Low Priority
+
+                    </span>
+
+                    <h3>Maintain Current Strategy</h3>
+
+                    <div class="confidence-score">
+
+                        88% Confidence
+
+                    </div>
+
+                    <p>
+
+                        Current supplier performance is stable. No immediate
+                        action is required. Continue monitoring monthly
+                        analytics for future trends.
+
+                    </p>
+
+                    <div class="recommendation-actions">
+
+                        <button class="btn btn-primary">
+
+                            Accept
+
+                        </button>
+
+                        <button class="btn btn-secondary">
+
+                            Reject
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/recommendations.js"></script>
+
+<script>
+
+    lucide.createIcons();
+
+</script>
+
+</body>
+
+</html>

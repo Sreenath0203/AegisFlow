@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Analytics | AegisFlow</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/variables.css">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet" href="css/layout.css">
+
+    <link rel="stylesheet" href="css/components.css">
+
+    <link rel="stylesheet" href="css/analytics.css">
+
+    <link rel="stylesheet" href="css/responsive.css">
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+
+            <h2>AegisFlow</h2>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <a href="dashboard.html">
+
+                <i data-lucide="layout-dashboard"></i>
+
+                Dashboard
+
+            </a>
+
+            <a href="suppliers.html">
+
+                <i data-lucide="building-2"></i>
+
+                Suppliers
+
+            </a>
+
+            <a href="analytics.html" class="active">
+
+                <i data-lucide="bar-chart-3"></i>
+
+                Analytics
+
+            </a>
+
+            <a href="recommendations.html">
+
+                <i data-lucide="sparkles"></i>
+
+                AI Recommendations
+
+            </a>
+
+            <a href="settings.html">
+
+                <i data-lucide="settings"></i>
+
+                Settings
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <div class="analytics-page">
+
+            <div class="analytics-header">
+
+                <div>
+
+                    <h1>Analytics Dashboard</h1>
+
+                    <p>Monitor supplier performance and AI insights.</p>
+
+                </div>
+
+                <div class="analytics-toolbar">
+
+                    <div class="analytics-filters">
+
+                        <select class="input-field">
+
+                            <option>This Month</option>
+
+                            <option>Last Month</option>
+
+                            <option>Last 6 Months</option>
+
+                            <option>This Year</option>
+
+                        </select>
+
+                    </div>
+
+                    <button class="btn btn-secondary refresh-btn">
+
+                        Refresh
+
+                    </button>
+
+                    <button class="btn btn-primary export-btn">
+
+                        Export
+
+                    </button>
+
+                </div>
+
+            </div>
+                        <!-- KPI Cards -->
+
+            <div class="analytics-kpis">
+
+                <div class="kpi-card">
+
+                    <h3 class="kpi-value">96%</h3>
+
+                    <p class="kpi-label">Supplier Performance</p>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <h3 class="kpi-value">89%</h3>
+
+                    <p class="kpi-label">On-Time Deliveries</p>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <h3 class="kpi-value">245</h3>
+
+                    <p class="kpi-label">Active Suppliers</p>
+
+                </div>
+
+                <div class="kpi-card">
+
+                    <h3 class="kpi-value">18</h3>
+
+                    <p class="kpi-label">Risk Alerts</p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Charts -->
+
+            <div class="charts-grid">
+
+                <div class="chart-card">
+
+                    <h3>Supplier Performance Trend</h3>
+
+                    <div class="chart-placeholder">
+
+                        Chart will appear here
+
+                    </div>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>Monthly Orders</h3>
+
+                    <div class="chart-placeholder">
+
+                        Chart will appear here
+
+                    </div>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>Category Distribution</h3>
+
+                    <div class="chart-placeholder">
+
+                        Chart will appear here
+
+                    </div>
+
+                </div>
+
+                <div class="chart-card">
+
+                    <h3>Delivery Analytics</h3>
+
+                    <div class="chart-placeholder">
+
+                        Chart will appear here
+
+                    </div>
+
+                </div>
+
+            </div>
+                        <!-- AI Insights -->
+
+            <div class="recommendation-box">
+
+                <h3>AI Insights</h3>
+
+                <p>
+
+                    Supplier performance has improved by <strong>12%</strong>
+
+                    compared to the previous month. Electronics suppliers have
+
+                    maintained a <strong>96%</strong> delivery success rate.
+
+                    Two suppliers have been flagged for delayed shipments and
+
+                    require immediate review.
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="js/analytics.js"></script>
+
+<script>
+
+    lucide.createIcons();
+
+</script>
+
+</body>
+
+</html>
