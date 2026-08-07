@@ -1,0 +1,6 @@
+shipment_id,origin,destination,status,delay_days
+101,Chennai,Bangalore,On Time,0
+102,Mumbai,Delhi,Delayed,3
+103,Hyderabad,Pune,On Time,0
+104,Kolkata,Chennai,Delayed,2
+105,Delhi,Jaipur,On Time,0
