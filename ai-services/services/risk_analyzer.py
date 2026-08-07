@@ -1,4 +1,4 @@
-from models.granite_model import generate_response
+from backend.models.granite_model import generate_response
 
 
 def analyze_supplier(data):

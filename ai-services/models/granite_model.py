@@ -1,7 +1,7 @@
 from ibm_watsonx_ai import Credentials
 from ibm_watsonx_ai.foundation_models import ModelInference
 
-from config import (
+from backend.config import (
     WATSONX_API_KEY,
     WATSONX_PROJECT_ID,
     WATSONX_URL,

@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from models.alert import Alert
-from schemas.alert_schema import AlertCreate, AlertUpdate
+from backend.models.alert import Alert
+from backend.schemas.alert_schema import AlertCreate, AlertUpdate
 
 
 

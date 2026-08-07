@@ -1,9 +1,9 @@
 from sqlalchemy.orm import Session
 
-from models.user import User
-from schemas.user_schema import UserCreate, UserLogin
+from backend.models.user import User
+from backend.schemas.user_schema import UserCreate, UserLogin
 
-from security import (
+from backend.security import (
     hash_password,
     verify_password,
     create_access_token

@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from models.risk import Risk
-from schemas.risk_schema import RiskCreate, RiskUpdate
+from backend.models.risk import Risk
+from backend.schemas.risk_schema import RiskCreate, RiskUpdate
 
 
 def get_all_risks(db: Session):

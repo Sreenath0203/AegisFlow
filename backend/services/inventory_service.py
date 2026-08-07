@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from models.inventory import Inventory
-from schemas.inventory_schema import InventoryCreate, InventoryUpdate
+from backend.models.inventory import Inventory
+from backend.schemas.inventory_schema import InventoryCreate, InventoryUpdate
 
 
 def get_all_inventory(db: Session):

@@ -1,5 +1,5 @@
-from services.risk_analyzer import analyze_supplier
-from services.recommendation_engine import parse_ai_response
+from backend.services.risk_analyzer import analyze_supplier
+from backend.services.recommendation_engine import parse_ai_response
 
 supplier = {
     "supplier_name": "ABC Ltd",

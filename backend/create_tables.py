@@ -1,12 +1,12 @@
-from database import Base, engine
+from backend.database import Base, engine
 
 # Import all models
-from models.user import User
-from models.supplier import Supplier
-from models.risk import Risk
-from models.inventory import Inventory
-from models.recommendation import Recommendation
-from models.alert import Alert
+from backend.models.user import User
+from backend.models.supplier import Supplier
+from backend.models.risk import Risk
+from backend.models.inventory import Inventory
+from backend.models.recommendation import Recommendation
+from backend.models.alert import Alert
 
 
 print("Creating database tables...")

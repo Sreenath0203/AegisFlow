@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from models.recommendation import Recommendation
-from schemas.recommendation_schema import RecommendationCreate
+from backend.models.recommendation import Recommendation
+from backend.schemas.recommendation_schema import RecommendationCreate
 
 
 def get_all_recommendations(db: Session):

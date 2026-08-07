@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from models.supplier import Supplier
-from schemas.supplier_schema import SupplierCreate, SupplierUpdate
+from backend.models.supplier import Supplier
+from backend.schemas.supplier_schema import SupplierCreate, SupplierUpdate
 
 
 def get_all_suppliers(db: Session):

@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 from sqlalchemy import func
 
-from models.supplier import Supplier
-from models.risk import Risk
+from backend.models.supplier import Supplier
+from backend.models.risk import Risk
 
 
 def get_dashboard_stats(db: Session):

@@ -1,16 +1,16 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from database import get_db
-from security import get_current_user
-from models.user import User
+from backend.database import get_db
+from backend.security import get_current_user
+from backend.models.user import User
 
-from schemas.recommendation_schema import (
+from backend.schemas.recommendation_schema import (
     RecommendationCreate,
     RecommendationResponse
 )
 
-from services import recommendation_service
+from backend.services import recommendation_service
 
 
 router = APIRouter(

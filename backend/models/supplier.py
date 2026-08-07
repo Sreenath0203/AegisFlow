@@ -1,7 +1,6 @@
 from sqlalchemy import Column, Integer, String
 
-from database import Base
-
+from backend.database import Base
 
 class Supplier(Base):
     __tablename__ = "suppliers"

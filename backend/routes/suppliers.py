@@ -1,17 +1,18 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
-from database import get_db
-from security import get_current_user
-from models.user import User
+from backend.database import get_db
+from backend.security import get_current_user
+from backend.models.user import User
 
-from schemas.supplier_schema import (
+from backend.schemas.supplier_schema import (
     SupplierCreate,
     SupplierUpdate,
     SupplierResponse,
 )
 
-from services import supplier_service
+from backend.services import supplier_service
+
 
 router = APIRouter(
     prefix="/suppliers",

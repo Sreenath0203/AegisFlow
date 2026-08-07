@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from routes import (
+from backend.routes import (
     suppliers,
     risks,
     dashboard,
@@ -15,13 +15,14 @@ app = FastAPI(
     version="1.0.0"
 )
 
+# Register all routers
+app.include_router(auth.router)
 app.include_router(suppliers.router)
-app.include_router(risks.router)
-app.include_router(dashboard.router)
 app.include_router(inventory.router)
+app.include_router(risks.router)
 app.include_router(alerts.router)
 app.include_router(recommendations.router)
-app.include_router(auth.router)
+app.include_router(dashboard.router)
 
 
 @app.get("/")
