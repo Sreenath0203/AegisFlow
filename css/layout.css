@@ -1,0 +1,281 @@
+/* =========================================================
+   AEGISFLOW - APPLICATION LAYOUT
+   Contains:
+   • Sidebar
+   • Navbar
+   • Main Wrapper
+========================================================= */
+
+
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+
+.sidebar{
+
+    position: fixed;
+
+    top: 0;
+
+    left: 0;
+
+    width: 270px;
+
+    height: 100vh;
+
+    background: #0F172A;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    padding: 28px 20px;
+
+    border-right: 1px solid rgba(255,255,255,.08);
+
+    overflow-y: auto;
+
+    z-index: 1000;
+
+}
+
+
+
+/* =========================================================
+   SIDEBAR LOGO
+========================================================= */
+
+.sidebar-logo{
+
+    padding-bottom: 28px;
+
+    border-bottom: 1px solid rgba(255,255,255,.08);
+
+}
+
+.sidebar-logo h2{
+
+    color: white;
+
+    font-size: 28px;
+
+    font-weight: 700;
+
+    letter-spacing: .5px;
+
+}
+
+
+
+/* =========================================================
+   SIDEBAR MENU
+========================================================= */
+
+.sidebar-menu{
+
+    margin-top: 30px;
+
+    flex: 1;
+
+}
+
+.sidebar-menu ul{
+
+    list-style: none;
+
+    padding: 0;
+
+    margin: 0;
+
+}
+
+.sidebar-menu li{
+
+    margin-bottom: 10px;
+
+}
+
+.sidebar-menu a{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px 16px;
+
+    color: #CBD5E1;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    font-weight: 500;
+
+    transition: all .25s ease;
+
+}
+
+.sidebar-menu a:hover{
+
+    background: rgba(37,99,235,.15);
+
+    color: white;
+
+    transform: translateX(4px);
+
+}
+
+.sidebar-menu a.active{
+
+    background: #2563EB;
+
+    color: white;
+
+    box-shadow: 0 8px 20px rgba(37,99,235,.30);
+
+}
+
+.sidebar-menu i{
+
+    width: 20px;
+
+    height: 20px;
+
+    flex-shrink: 0;
+
+}
+
+
+
+/* =========================================================
+   SIDEBAR FOOTER
+========================================================= */
+
+.sidebar-footer{
+
+    padding-top: 20px;
+
+    border-top: 1px solid rgba(255,255,255,.08);
+
+}
+
+.sidebar-footer a{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 14px 16px;
+
+    color: #CBD5E1;
+
+    text-decoration: none;
+
+    border-radius: 12px;
+
+    transition: all .25s ease;
+
+}
+
+.sidebar-footer a:hover{
+
+    background: rgba(239,68,68,.12);
+
+    color: #EF4444;
+
+}
+
+
+
+/* =========================================================
+   MAIN WRAPPER
+========================================================= */
+
+.main-wrapper{
+
+    margin-left: 270px;
+
+    min-height: 100vh;
+
+    background: var(--background-color);
+
+}
+
+
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
+    position: sticky;
+
+    top: 0;
+
+    height: var(--navbar-height);
+
+    background: rgba(255,255,255,.95);
+
+    backdrop-filter: blur(12px);
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 32px;
+
+    border-bottom: 1px solid var(--border-color);
+
+    z-index: 999;
+
+}
+
+
+
+/* =========================================================
+   NAVBAR SEARCH
+========================================================= */
+
+.navbar-search{
+
+    flex: 1;
+
+}
+
+
+
+/* =========================================================
+   NAVBAR RIGHT
+========================================================= */
+
+.navbar-right{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.main-content{
+
+    padding: 32px;
+
+}
