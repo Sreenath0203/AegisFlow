@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AegisFlow – Supply Chain Decision Intelligence</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+
+<body>
+
+  <!-- ============================================================ -->
+  <!-- LANDING / START PAGE                                         -->
+  <!-- ============================================================ -->
+  <div id="landing-page" class="landing-page">
+    <div class="landing-content">
+      <div class="landing-logo">
+        <svg width="52" height="52" viewBox="0 0 52 52" fill="none">
+          <rect x="3" y="3" width="46" height="46" rx="14" stroke="url(#landGrad)" stroke-width="2.5"/>
+          <path d="M16 26L23 33L36 19" stroke="url(#landGrad)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          <defs>
+            <linearGradient id="landGrad" x1="0" y1="0" x2="52" y2="52">
+              <stop offset="0%" stop-color="#4F46E5"/>
+              <stop offset="100%" stop-color="#0891B2"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <h1 class="landing-title">AegisFlow</h1>
+      <p class="landing-tagline">Decision Intelligence for Resilient Supply Chains</p>
+      <p class="landing-description">Monitor suppliers. Detect risks. Understand disruptions.<br>Make faster, smarter decisions.</p>
+      <div class="landing-actions">
+        <button class="btn-landing-primary" onclick="enterApp()">
+          <i class="fas fa-arrow-right"></i> Get Started
+        </button>
+        <button class="btn-landing-secondary" onclick="enterApp(); navigateToPage('dashboard')">
+          <i class="fas fa-th-large"></i> Explore Dashboard
+        </button>
+      </div>
+      <div class="landing-badges">
+        <span class="landing-badge"><i class="fas fa-microchip"></i> IBM Granite AI</span>
+        <span class="landing-badge"><i class="fas fa-robot"></i> watsonx Orchestrate</span>
+        <span class="landing-badge"><i class="fas fa-globe"></i> Live Intelligence</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================ -->
+  <!-- MAIN APPLICATION                                             -->
+  <!-- ============================================================ -->
+  <div id="app" class="app-hidden">
+
+    <!-- ============================================================ -->
+    <!-- LEFT SIDEBAR                                                  -->
+    <!-- ============================================================ -->
+    <nav class="sidebar" id="app-sidebar">
+
+      <!-- Brand -->
+      <a class="sidebar-logo" onclick="navigateToPage('dashboard')" href="#">
+        <div class="logo-icon">
+          <svg width="30" height="30" viewBox="0 0 32 32" fill="none">
+            <rect x="2" y="2" width="28" height="28" rx="8" stroke="#FFFFFF" stroke-width="2" stroke-opacity="0.9"/>
+            <path d="M10 16L14 20L22 12" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="sidebar-logo-text">
+          <h1>AegisFlow</h1>
+          <span>Decision Intelligence</span>
+        </div>
+      </a>
+
+      <!-- Navigation links -->
+      <div class="sidebar-nav" id="main-nav">
+        <div class="nav-section-label">Core</div>
+        <a href="#" class="nav-link active" data-page="dashboard"><i class="fas fa-th-large"></i><span>Dashboard</span></a>
+        <a href="#" class="nav-link" data-page="inventory"><i class="fas fa-boxes"></i><span>Inventory</span></a>
+        <a href="#" class="nav-link" data-page="suppliers"><i class="fas fa-building"></i><span>Suppliers</span></a>
+        <a href="#" class="nav-link" data-page="shipments"><i class="fas fa-truck"></i><span>Shipments</span></a>
+        <a href="#" class="nav-link" data-page="map"><i class="fas fa-map-marked-alt"></i><span>Map</span></a>
+
+        <div class="nav-section-label">Intelligence</div>
+        <a href="#" class="nav-link" data-page="risks"><i class="fas fa-shield-alt"></i><span>Risks</span></a>
+        <a href="#" class="nav-link" data-page="scenarios"><i class="fas fa-dice"></i><span>Scenarios</span></a>
+        <a href="#" class="nav-link" data-page="recommendations"><i class="fas fa-robot"></i><span>AI Actions</span></a>
+        <a href="#" class="nav-link" data-page="news"><i class="fas fa-newspaper"></i><span>News</span></a>
+        <a href="#" class="nav-link" data-page="reports"><i class="fas fa-chart-pie"></i><span>Reports</span></a>
+
+        <div class="nav-section-label">Tools</div>
+        <a href="#" class="nav-link nav-link-ai" onclick="toggleAIChatbotPanel(); return false;"><i class="fas fa-comments"></i><span>AI Assistant</span></a>
+      </div>
+
+      <!-- Sidebar Footer: status + user -->
+      <div class="sidebar-footer">
+        <div class="sidebar-status-row">
+          <div class="sidebar-status-pill connected" id="system-status-indicator">
+            <i class="fas fa-circle"></i><span id="system-status-text">Connecting...</span>
+          </div>
+        </div>
+        <div class="sidebar-user">
+          <div class="sidebar-user-avatar">
+            <img src="https://ui-avatars.com/api/?name=SC&background=0B1F3A&color=fff&size=40" alt="User">
+          </div>
+          <div class="sidebar-user-info">
+            <span class="sidebar-user-name">SC Operator</span>
+            <span class="sidebar-user-role">Enterprise Operator</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- CONTENT WRAPPER (sits beside sidebar)                        -->
+    <!-- ============================================================ -->
+    <div class="content-wrapper">
+
+      <!-- Slim top bar -->
+      <div class="topbar">
+        <div class="topbar-left">
+          <!-- Mobile menu toggle — only visible on ≤768px -->
+          <button class="icon-btn topbar-mobile-menu" id="sidebar-toggle-btn"
+                  title="Toggle Menu" style="display:none;"
+                  onclick="document.getElementById('app-sidebar').classList.toggle('mobile-open');">
+            <i class="fas fa-bars"></i>
+          </button>
+          <span class="topbar-breadcrumb" id="topbar-breadcrumb">Dashboard</span>
+        </div>
+        <div class="topbar-right">
+          <button class="icon-btn" id="global-refresh-btn" title="Refresh Current View" onclick="refreshCurrentView()">
+            <i class="fas fa-sync-alt"></i>
+          </button>
+          <div class="user-menu">
+            <div class="user-avatar">
+              <img src="https://ui-avatars.com/api/?name=SC&background=0B1F3A&color=fff&size=40" alt="User">
+            </div>
+            <div class="user-info">
+              <span class="user-name">SC Operator</span>
+              <span class="user-role">Enterprise</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+
+      <!-- ===== 1. DASHBOARD ===== -->
+      <section id="view-dashboard" class="page-view active">
+        <div class="page-header">
+          <div>
+            <h2>Executive Dashboard</h2>
+            <p class="page-subtitle">Real-time supply chain intelligence &amp; risk monitoring</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-outline" onclick="exportViewData('dashboard')"><i class="fas fa-download"></i> Export</button>
+            <button class="btn-primary" id="dashboard-refresh-btn" onclick="loadDashboardWithRefreshState()"><i class="fas fa-sync-alt"></i> Refresh</button>
+          </div>
+        </div>
+
+        <!-- KPI Grid -->
+        <div class="kpi-grid" id="kpi-grid">
+          <div class="kpi-card" id="kpi-card-risk">
+            <div class="kpi-top">
+              <span class="kpi-label">Overall Risk</span>
+              <span class="kpi-icon risk-icon"><i class="fas fa-shield-alt"></i></span>
+            </div>
+            <div class="kpi-main">
+              <span class="kpi-value" id="overall-risk-level">—</span>
+              <span class="kpi-badge badge-low" id="overall-risk-score">— / 100</span>
+            </div>
+            <div class="kpi-progress"><div class="progress-fill" id="overall-risk-progress" style="width:0%;"></div></div>
+            <div class="kpi-footer"><span class="kpi-subtext" id="kpi-critical-risks-footer">Loading...</span></div>
+          </div>
+
+          <div class="kpi-card" id="kpi-card-suppliers">
+            <div class="kpi-top">
+              <span class="kpi-label">Active Suppliers</span>
+              <span class="kpi-icon"><i class="fas fa-building"></i></span>
+            </div>
+            <div class="kpi-main">
+              <span class="kpi-value" id="kpi-active-suppliers">—</span>
+              <span class="kpi-badge badge-warn" id="kpi-suppliers-at-risk">— at risk</span>
+            </div>
+            <div class="kpi-subtext-row">
+              <span>Avg Reliability</span>
+              <strong id="kpi-avg-reliability">—</strong>
+            </div>
+          </div>
+
+          <div class="kpi-card" id="kpi-card-shipments">
+            <div class="kpi-top">
+              <span class="kpi-label">Shipment Tracking</span>
+              <span class="kpi-icon"><i class="fas fa-truck"></i></span>
+            </div>
+            <div class="kpi-main">
+              <span class="kpi-value" id="kpi-total-shipments">—</span>
+              <span class="kpi-badge badge-danger" id="kpi-delayed-shipments">— delayed</span>
+            </div>
+            <div class="kpi-subtext-row">
+              <span>Avg Delay</span>
+              <strong id="kpi-avg-delay">—</strong>
+            </div>
+          </div>
+
+          <div class="kpi-card" id="kpi-card-financial">
+            <div class="kpi-top">
+              <span class="kpi-label">Financial Exposure</span>
+              <span class="kpi-icon"><i class="fas fa-dollar-sign"></i></span>
+            </div>
+            <div class="kpi-main">
+              <span class="kpi-value" id="kpi-potential-impact">—</span>
+              <span class="kpi-badge badge-warn" id="kpi-impact-badge">Calculated</span>
+            </div>
+            <div class="kpi-subtext-row">
+              <span>Critical Risks</span>
+              <strong id="kpi-critical-risks-count">—</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Charts Row -->
+        <div class="charts-row">
+          <!-- Risk Chart -->
+          <div class="card chart-card">
+            <div class="card-header">
+              <div>
+                <h4><i class="fas fa-chart-line"></i> Supply Chain Risk Score</h4>
+                <p class="chart-desc">Risk score per active risk — based on live supplier, shipment &amp; disruption data.</p>
+              </div>
+              <span class="live-badge"><i class="fas fa-circle"></i> Live</span>
+            </div>
+            <div class="chart-body" id="risk-chart-body">
+              <div class="chart-loading"><i class="fas fa-spinner fa-spin"></i> Loading risk data...</div>
+            </div>
+          </div>
+
+          <!-- System Integrations -->
+          <div class="card">
+            <div class="card-header">
+              <h4><i class="fas fa-network-wired"></i> System Integrations</h4>
+              <span class="live-badge live-badge-green"><i class="fas fa-circle"></i> Active</span>
+            </div>
+            <div class="integration-grid">
+              <div class="integration-item">
+                <div class="int-icon"><i class="fas fa-microchip" style="color:#4F46E5;"></i></div>
+                <div class="int-body">
+                  <span class="int-name">IBM Granite LLM</span>
+                  <span class="int-status active">Active &amp; Responding</span>
+                </div>
+                <i class="fas fa-check-circle int-check"></i>
+              </div>
+              <div class="integration-item">
+                <div class="int-icon"><i class="fas fa-robot" style="color:#0891B2;"></i></div>
+                <div class="int-body">
+                  <span class="int-name">watsonx Orchestrate</span>
+                  <span class="int-status active">Agent Ready</span>
+                </div>
+                <i class="fas fa-check-circle int-check"></i>
+              </div>
+              <div class="integration-item">
+                <div class="int-icon"><i class="fas fa-search" style="color:#7C3AED;"></i></div>
+                <div class="int-body">
+                  <span class="int-name">RAG Engine</span>
+                  <span class="int-status active">Vector Collection Ready</span>
+                </div>
+                <i class="fas fa-check-circle int-check"></i>
+              </div>
+              <div class="integration-item">
+                <div class="int-icon"><i class="fas fa-database" style="color:#059669;"></i></div>
+                <div class="int-body">
+                  <span class="int-name">Data Prep Kit</span>
+                  <span class="int-status active">Ingestion In Sync</span>
+                </div>
+                <i class="fas fa-check-circle int-check"></i>
+              </div>
+            </div>
+            <div class="quick-actions-grid" style="margin-top:16px;">
+              <button class="action-btn" onclick="triggerTyphoonDemo()"><i class="fas fa-tornado" style="color:#EF4444;"></i> Typhoon Demo</button>
+              <button class="action-btn" onclick="navigateToPage('recommendations')"><i class="fas fa-robot" style="color:#4F46E5;"></i> AI Actions</button>
+              <button class="action-btn" onclick="navigateToPage('reports')"><i class="fas fa-file-pdf" style="color:#EF4444;"></i> Report</button>
+              <button class="action-btn" onclick="loadDashboardWithRefreshState()"><i class="fas fa-sync-alt" style="color:#059669;"></i> Sync</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 2. RISKS ===== -->
+      <section id="view-risks" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-shield-alt" style="color:#F59E0B;"></i> Risk Intelligence</h2>
+            <p class="page-subtitle">Real-time risk scoring, severity detection, and threat mitigations</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-primary" id="risks-refresh-btn" onclick="loadRisksWithRefreshState()"><i class="fas fa-sync-alt"></i> Refresh</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4>Active Supply Chain Risks</h4>
+            <span class="badge-count" id="risks-count-badge">0 Risks</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>ID</th><th>Risk Title</th><th>Entity Type</th><th>Risk Score</th><th>Severity</th><th>Impact Description</th><th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="risks-table-body">
+                <tr><td colspan="7" class="loading-cell"><i class="fas fa-spinner fa-spin"></i> Loading risk telemetry...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 3. SUPPLIERS ===== -->
+      <section id="view-suppliers" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-building" style="color:#4F46E5;"></i> Supplier Management</h2>
+            <p class="page-subtitle">Global vendor tracking, reliability scoring, and automated risk analysis</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-primary" id="suppliers-refresh-btn" onclick="loadSuppliersWithRefreshState()"><i class="fas fa-sync-alt"></i> Refresh</button>
+          </div>
+        </div>
+        <!-- Supplier Filters -->
+        <div class="card filter-bar">
+          <div class="filter-row">
+            <div class="filter-group">
+              <label><i class="fas fa-search"></i> Search</label>
+              <input type="text" id="supplier-search" class="form-input" placeholder="Name, country, category..." oninput="filterSuppliers()">
+            </div>
+            <div class="filter-group">
+              <label><i class="fas fa-globe"></i> Country</label>
+              <select id="supplier-country-filter" class="form-select" onchange="filterSuppliers()">
+                <option value="">All Countries</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label><i class="fas fa-tag"></i> Category</label>
+              <select id="supplier-category-filter" class="form-select" onchange="filterSuppliers()">
+                <option value="">All Categories</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label><i class="fas fa-shield-alt"></i> Risk Level</label>
+              <select id="supplier-risk-filter" class="form-select" onchange="filterSuppliers()">
+                <option value="">All Risk Levels</option>
+                <option value="LOW">Low</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="HIGH">High</option>
+                <option value="CRITICAL">Critical</option>
+              </select>
+            </div>
+            <div class="filter-group">
+              <label><i class="fas fa-sort"></i> Sort By</label>
+              <select id="supplier-sort" class="form-select" onchange="filterSuppliers()">
+                <option value="name">Name</option>
+                <option value="reliability">Reliability ↓</option>
+                <option value="on_time">On-Time ↓</option>
+                <option value="risk_asc">Risk (Low→High)</option>
+                <option value="risk_desc">Risk (High→Low)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4>Global Supplier Registry</h4>
+            <span class="badge-count" id="suppliers-count-badge">0 Suppliers</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>#</th><th>Supplier Name</th><th>Country</th><th>Category</th>
+                  <th>Reliability</th><th>On-Time</th><th>Quality</th><th>Risk Level</th><th>Analysis</th>
+                </tr>
+              </thead>
+              <tbody id="suppliers-table-body">
+                <tr><td colspan="9" class="loading-cell"><i class="fas fa-spinner fa-spin"></i> Loading supplier directory...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 4. SHIPMENTS ===== -->
+      <section id="view-shipments" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-truck" style="color:#0891B2;"></i> Shipment &amp; Logistics Tracking</h2>
+            <p class="page-subtitle">Active freight tracking across ocean, air, and overland logistics lanes</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-primary" id="shipments-refresh-btn" onclick="loadShipmentsWithRefreshState()"><i class="fas fa-sync-alt"></i> Refresh</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4>Active In-Transit Shipments</h4>
+            <span class="badge-count" id="shipments-count-badge">0 Shipments</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Code</th><th>Cargo</th><th>Carrier</th><th>Origin</th>
+                  <th>Destination</th><th>Delay (Days)</th><th>Risk</th><th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="shipments-table-body">
+                <tr><td colspan="8" class="loading-cell"><i class="fas fa-spinner fa-spin"></i> Loading active shipments...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 5. SUPPLY CHAIN MAP ===== -->
+      <section id="view-map" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-map-marked-alt" style="color:#0891B2;"></i> Supply Chain Map</h2>
+            <p class="page-subtitle">Geographic visualization of suppliers, shipment routes, and live weather telemetry</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-primary" id="map-refresh-btn" onclick="refreshMapWithState()"><i class="fas fa-sync-alt"></i> Refresh Telemetry</button>
+          </div>
+        </div>
+
+        <div class="card map-selector-card">
+          <div class="map-selector-wrapper">
+            <label for="map-supplier-select"><i class="fas fa-building" style="color:#4F46E5;"></i> <strong>Select Supplier:</strong></label>
+            <select id="map-supplier-select" class="form-select" onchange="onMapSupplierSelected(this.value)" style="max-width:360px;">
+              <option value="">— Choose Supplier from Registry —</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="map-layout-grid">
+          <!-- Left Panel -->
+          <div class="map-side-panel">
+            <div id="map-risk-alert-card" class="card risk-alert-card hidden">
+              <div class="alert-header">
+                <i class="fas fa-exclamation-triangle" style="color:#EF4444;"></i>
+                <h4 id="map-risk-alert-title">Supply Chain Alert</h4>
+              </div>
+              <p id="map-risk-alert-body" class="alert-body">High risk detected.</p>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h4><i class="fas fa-info-circle"></i> Supplier Overview</h4>
+                <span class="badge-count" id="map-supplier-risk-badge">—</span>
+              </div>
+              <div id="map-supplier-details" class="details-body">
+                <p class="empty-state-msg"><i class="fas fa-hand-pointer"></i> Select a supplier to view details.</p>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <h4><i class="fas fa-cloud-sun-rain" style="color:#3B82F6;"></i> Live Weather</h4>
+                <span class="badge-count" id="map-weather-risk-badge">—</span>
+              </div>
+              <div id="map-weather-details" class="details-body">
+                <p class="empty-state-msg"><i class="fas fa-cloud"></i> Select a supplier to load weather.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Map -->
+          <div class="map-container-card card">
+            <div id="leaflet-map" style="width:100%; height:520px; border-radius:10px; background:#e8ecf1;"></div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-top:20px;">
+          <div class="card-header">
+            <h4><i class="fas fa-route" style="color:#F59E0B;"></i> Shipment Travel Path Details</h4>
+            <span class="badge-count" id="map-shipments-count">0 Shipments</span>
+          </div>
+          <div id="map-shipment-detail-panel" class="details-body">
+            <p class="empty-state-msg"><i class="fas fa-map-marker-alt"></i> Select a supplier or click a route on the map.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 6. INVENTORY ===== -->
+      <section id="view-inventory" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-boxes" style="color:#059669;"></i> Inventory Management</h2>
+            <p class="page-subtitle">Real-time component stock, daily burn rates, and stockout risk alerts</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-primary" id="inventory-refresh-btn" onclick="loadInventoryWithRefreshState()"><i class="fas fa-sync-alt"></i> Refresh</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4>Component Inventory Registry</h4>
+            <span class="badge-count" id="inventory-count-badge">0 Items</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>SKU</th><th>Product Name</th><th>Stock</th><th>Daily Demand</th>
+                  <th>Reorder Level</th><th>Stock Runway</th><th>Unit Cost</th><th>Stockout Risk</th>
+                </tr>
+              </thead>
+              <tbody id="inventory-table-body">
+                <tr><td colspan="8" class="loading-cell"><i class="fas fa-spinner fa-spin"></i> Loading inventory...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 7. SCENARIOS ===== -->
+      <section id="view-scenarios" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-dice" style="color:#7C3AED;"></i> What-If Scenario Simulation</h2>
+            <p class="page-subtitle">Simulate supply chain recovery strategies, cost trade-offs, and lead times</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-primary" onclick="loadScenarios()"><i class="fas fa-play"></i> Run Simulation</button>
+          </div>
+        </div>
+
+        <!-- Disruption Type Selector -->
+        <div class="card scenario-filter-card">
+          <div class="scenario-filter-grid">
+            <div class="filter-group">
+              <label><i class="fas fa-bolt"></i> Disruption Type</label>
+              <select id="scenario-disruption-select" class="form-select" onchange="onDisruptionTypeChange()">
+                <option value="SUPPLIER_FAILURE">Supplier Failure</option>
+                <option value="PORT_STRIKE">Port Strike</option>
+                <option value="TYPHOON_DISRUPTION">Typhoon / Weather Event</option>
+                <option value="GEOPOLITICAL_TENSION">Geopolitical Tension</option>
+                <option value="DEMAND_SPIKE">Demand Spike</option>
+                <option value="LOGISTICS_DELAY">Logistics Delay</option>
+                <option value="QUALITY_FAILURE">Quality Failure</option>
+                <option value="PRICE_SHOCK">Price / Cost Shock</option>
+                <option value="NATURAL_DISASTER">Natural Disaster</option>
+                <option value="CYBER_INCIDENT">Cyber Incident</option>
+              </select>
+            </div>
+            <div class="filter-group" style="grid-column: 1 / -1;">
+              <label><i class="fas fa-tags"></i> Quick Select</label>
+              <div class="scenario-quick-chips">
+                <button class="chip-btn-light active" onclick="selectDisruptionType('SUPPLIER_FAILURE')">Supplier Failure</button>
+                <button class="chip-btn-light" onclick="selectDisruptionType('PORT_STRIKE')">Port Strike</button>
+                <button class="chip-btn-light" onclick="selectDisruptionType('TYPHOON_DISRUPTION')">Typhoon</button>
+                <button class="chip-btn-light" onclick="selectDisruptionType('GEOPOLITICAL_TENSION')">Geopolitical</button>
+                <button class="chip-btn-light" onclick="selectDisruptionType('DEMAND_SPIKE')">Demand Spike</button>
+                <button class="chip-btn-light" onclick="selectDisruptionType('LOGISTICS_DELAY')">Logistics Delay</button>
+                <button class="chip-btn-light" onclick="selectDisruptionType('QUALITY_FAILURE')">Quality Failure</button>
+                <button class="chip-btn-light" onclick="selectDisruptionType('PRICE_SHOCK')">Price Shock</button>
+                <button class="chip-btn-light" onclick="selectDisruptionType('NATURAL_DISASTER')">Natural Disaster</button>
+                <button class="chip-btn-light" onclick="selectDisruptionType('CYBER_INCIDENT')">Cyber Incident</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="scenarios-grid" id="scenarios-grid">
+          <div class="card"><p class="loading-cell"><i class="fas fa-spinner fa-spin"></i> Loading scenario models...</p></div>
+        </div>
+      </section>
+
+      <!-- ===== 8. AI RECOMMENDATIONS ===== -->
+      <section id="view-recommendations" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-robot" style="color:#4F46E5;"></i> Autonomous AI Recommendations</h2>
+            <p class="page-subtitle">Prescriptive actions generated by IBM Granite multi-agent pipeline</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-primary" onclick="loadRecommendations()"><i class="fas fa-sync-alt"></i> Refresh AI Stream</button>
+          </div>
+        </div>
+        <div class="recommendations-list" id="recommendations-list">
+          <div class="card"><p class="loading-cell"><i class="fas fa-spinner fa-spin"></i> Loading AI recommendations...</p></div>
+        </div>
+      </section>
+
+      <!-- ===== 9. COMPLIANCE (hidden from nav, page still accessible) ===== -->
+      <section id="view-compliance" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-file-contract" style="color:#EC4899;"></i> Compliance &amp; SLA Audit</h2>
+            <p class="page-subtitle">Contractual force majeure, SLA violation risks, and penalty exposure tracking</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-primary" onclick="loadCompliance()"><i class="fas fa-sync-alt"></i> Refresh Audit</button>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4>Compliance &amp; SLA Register</h4>
+            <span class="badge-count" id="compliance-count-badge">0 Records</span>
+          </div>
+          <div class="table-wrapper">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>ID</th><th>Policy Title</th><th>Category</th><th>Target Entity</th>
+                  <th>Penalty Exposure</th><th>Required Actions</th><th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="compliance-table-body">
+                <tr><td colspan="7" class="loading-cell">Loading compliance records...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 10. NEWS ===== -->
+      <section id="view-news" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-newspaper" style="color:#3B82F6;"></i> Supply Chain News</h2>
+            <p class="page-subtitle">Real-time persistent news, severity scoring, and entity impact mapping</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-primary" onclick="fetchAndStoreLiveNews()"><i class="fas fa-cloud-download-alt"></i> Fetch Live News</button>
+          </div>
+        </div>
+
+        <div class="card news-filter-card">
+          <div class="news-filter-grid">
+            <div class="filter-group">
+              <label><i class="fas fa-search"></i> Search News</label>
+              <input type="text" id="news-search-input" class="form-input" placeholder="Filter by keyword, supplier or location..." onkeyup="filterNewsEvents()">
+            </div>
+            <div class="filter-group">
+              <label><i class="fas fa-exclamation-circle"></i> Severity</label>
+              <select id="news-severity-filter" class="form-select" onchange="filterNewsEvents()">
+                <option value="ALL">All Severities</option>
+                <option value="CRITICAL">Critical</option>
+                <option value="HIGH">High Risk</option>
+                <option value="MEDIUM">Medium Risk</option>
+                <option value="LOW">Low Risk</option>
+              </select>
+            </div>
+            <div class="filter-group" style="grid-column: 1 / -1;">
+              <label><i class="fas fa-globe"></i> Quick Filters</label>
+              <div class="news-quick-chips">
+                <button class="chip-btn-light active" onclick="setNewsQuickFilter('ALL')">All</button>
+                <button class="chip-btn-light" onclick="setNewsQuickFilter('High Risk')">High Risk</button>
+                <button class="chip-btn-light" onclick="setNewsQuickFilter('Taiwan')">Taiwan</button>
+                <button class="chip-btn-light" onclick="setNewsQuickFilter('Malaysia')">Malaysia</button>
+                <button class="chip-btn-light" onclick="setNewsQuickFilter('Vietnam')">Vietnam</button>
+                <button class="chip-btn-light" onclick="setNewsQuickFilter('South Korea')">South Korea</button>
+                <button class="chip-btn-light" onclick="setNewsQuickFilter('Europe')">Europe</button>
+                <button class="chip-btn-light" onclick="setNewsQuickFilter('Shipping')">Shipping</button>
+                <button class="chip-btn-light" onclick="setNewsQuickFilter('Semiconductor')">Semiconductor</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="news-grid" id="news-container">
+          <div class="card"><p class="loading-cell"><i class="fas fa-spinner fa-spin"></i> Loading supply chain news...</p></div>
+        </div>
+
+        <div class="card" style="margin-top:24px;">
+          <div class="card-header">
+            <h4><i class="fas fa-project-diagram" style="color:#4F46E5;"></i> News → Supplier → Shipment → Inventory Impact Chain</h4>
+          </div>
+          <div id="news-impact-chain-container" class="impact-chain-body">
+            <p class="loading-cell"><i class="fas fa-spinner fa-spin"></i> Loading impact chain...</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 11. REPORTS ===== -->
+      <section id="view-reports" class="page-view">
+        <div class="page-header">
+          <div>
+            <h2><i class="fas fa-chart-pie" style="color:#F59E0B;"></i> Executive Analytics &amp; Audit Report</h2>
+            <p class="page-subtitle">Comprehensive decision intelligence report for executive leadership</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn-outline" onclick="window.print()"><i class="fas fa-print"></i> Print</button>
+            <button class="btn-primary" onclick="loadReports()"><i class="fas fa-sync-alt"></i> Generate Report</button>
+          </div>
+        </div>
+        <div class="card report-card" id="report-container">
+          <div class="loading-cell"><i class="fas fa-spinner fa-spin"></i> Generating executive report...</div>
+        </div>
+      </section>
+
+    </main>
+    </div><!-- /.content-wrapper -->
+  </div><!-- /#app -->
+
+  <!-- ============================================================ -->
+  <!-- FLOATING AI CHATBOT                                          -->
+  <!-- ============================================================ -->
+  <button id="ai-chat-toggle-btn" class="ai-chat-toggle" title="AegisFlow AI Assistant">
+    <i class="fas fa-robot"></i>
+    <span class="ai-chat-pulse"></span>
+  </button>
+
+  <div id="ai-chat-panel" class="ai-chat-panel">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar"><i class="fas fa-brain"></i></div>
+        <div>
+          <h4 class="chat-title">AegisFlow AI Intelligence</h4>
+          <span class="chat-subtitle"><i class="fas fa-microchip" style="color:#0891B2;"></i> IBM watsonx Orchestrate</span>
+        </div>
+      </div>
+      <div class="chat-header-actions">
+        <button id="chat-clear-btn" class="chat-icon-btn" title="Clear Conversation"><i class="fas fa-trash-alt"></i></button>
+        <button id="chat-close-btn" class="chat-icon-btn" title="Close"><i class="fas fa-times"></i></button>
+      </div>
+    </div>
+
+    <div id="chat-tool-indicator" class="chat-tool-indicator hidden">
+      <i class="fas fa-bolt" style="color:#F59E0B;"></i>
+      <span id="chat-tool-text">Working...</span>
+    </div>
+
+    <div id="chat-messages" class="chat-messages">
+      <div class="chat-msg system-welcome">
+        <div class="chat-msg-avatar"><i class="fas fa-robot"></i></div>
+        <div class="chat-msg-content">
+          <p>👋 Hello! I am your <strong>AegisFlow Supply-Chain Intelligence Assistant</strong> powered by <strong>IBM watsonx Orchestrate</strong>.</p>
+          <p>Ask me about inventory, suppliers, shipments, risks, or current disruptions.</p>
+        </div>
+      </div>
+    </div>
+
+    <div id="chat-suggested-chips" class="chat-suggested-chips">
+      <button class="chip-btn" onclick="sendSuggestedQuestion('What is the current inventory stockout risk?')"><i class="fas fa-boxes"></i> Inventory risk</button>
+      <button class="chip-btn" onclick="sendSuggestedQuestion('Show critical risks')"><i class="fas fa-exclamation-triangle"></i> Critical risks</button>
+      <button class="chip-btn" onclick="sendSuggestedQuestion('Delayed shipments')"><i class="fas fa-truck"></i> Delayed shipments</button>
+      <button class="chip-btn" onclick="sendSuggestedQuestion('Supplier reliability overview')"><i class="fas fa-building"></i> Suppliers</button>
+      <button class="chip-btn" onclick="sendSuggestedQuestion('Latest supply-chain news')"><i class="fas fa-newspaper"></i> News</button>
+    </div>
+
+    <div class="chat-input-container">
+      <input type="text" id="chat-input-field" placeholder="Ask about your supply chain..." autocomplete="off">
+      <button id="chat-send-btn" class="chat-send-btn" title="Send"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

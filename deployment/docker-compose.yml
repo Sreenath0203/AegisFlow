@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  aegisflow-app:
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./aegisflow.db
+      - WATSONX_API_KEY=${WATSONX_API_KEY}
+      - WATSONX_PROJECT_ID=${WATSONX_PROJECT_ID}
+      - WATSONX_URL=${WATSONX_URL:-https://us-south.ml.cloud.ibm.com}
+      - MODEL_ID=${MODEL_ID:-ibm/granite-13b-instruct-v2}
+    volumes:
+      - ../aegisflow.db:/app/aegisflow.db
